@@ -10,13 +10,13 @@ extraCols_narrowPeak <- c(signalValue = "numeric", pValue = "numeric",
 FLAG_rep1 <- import('FLAG-ChIP_rep1.narrowPeak', format = "BED",
                        extraCols = extraCols_narrowPeak)
 
-FLAG_rep2_gr <- import('FLAG-ChIP_rep2.narrowPeak', format = "BED",
+FLAG_rep2 <- import('FLAG-ChIP_rep2.narrowPeak', format = "BED",
                        extraCols = extraCols_narrowPeak)
 
 # Find the overlaps
-ol <- findOverlapsOfPeaks(FLAG_rep2, FLAG_rep1)
+ol <- findOverlapsOfPeaks(FLAG_rep1, FLAG_rep2)
 
 # Make Venn diagram
-makeVennDiagram(ol, fill=c("pink", "blue"), # circle fill color
+makeVennDiagram(ol, fill=c("green", "blue"), # circle fill color
                 col=c("black", "black"), #circle border color
-                cat.col=c("black", "black")) # label color, keep same as circle border color
+                cat.col=c("green", "blue")) # label color
